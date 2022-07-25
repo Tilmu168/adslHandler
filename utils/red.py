@@ -25,5 +25,6 @@ def addCurrentIp(host, ip):
     conn.hgetall(settings.redis_key)
     conn.hset(settings.redis_key, ip, json.dumps({
         "private_ip": ip,
-        "ts": time.strftime('%Y-%m-%d %H:%M:%S')
+        "ts": time.strftime('%Y-%m-%d %H:%M:%S'),
+        "host":host
     }))
