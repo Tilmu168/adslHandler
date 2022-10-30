@@ -108,6 +108,8 @@ def get_ip(hostname, port, username, password):
         ssh.close()
     if ip:
         return ip.group(1).strip()
+    dial(hostname, port, username, password)
+    return get_ip(hostname, port, username, password)
 
 
 def get_log(chan):
